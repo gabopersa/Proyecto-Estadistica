@@ -204,7 +204,7 @@ library(knitr)  # Para poder sacar una tabla bonita en html con kable
   t.test(B[7], conf.level = 0.93)  
   t.test(B[8], conf.level = 0.93)
   
-  # Centro de Investigacion A
+  # Centro de Investigacion C
   t.test(C[1], conf.level = 0.93)  
   t.test(C[2], conf.level = 0.93)  
   t.test(C[3], conf.level = 0.93)  
@@ -214,7 +214,7 @@ library(knitr)  # Para poder sacar una tabla bonita en html con kable
   t.test(C[7], conf.level = 0.93)  
   t.test(C[8], conf.level = 0.93)
   
-  # Centro de Investigacion A
+  # Centro de Investigacion D
   t.test(D[1], conf.level = 0.93)  
   t.test(D[2], conf.level = 0.93)  
   t.test(D[3], conf.level = 0.93)  
@@ -226,5 +226,143 @@ library(knitr)  # Para poder sacar una tabla bonita en html con kable
 
 
 # Halle un modelo lineal que explique mejor la variable “y”.  
+  
+# Modelo independiente del Centro de investigacion
+  # Primer modelo con todas las variables
+  m1 = lm( y ~ x1 + x2 + x3 + x4 + x5 + x6 +x7)
+  summary(m1)
+  
+  # Segundo modelo con todas las variables menos el interceptor
+  m2 = lm( y ~ x1 + x2 + x3 + x4 + x5 + x6 +x7 - 1)
+  summary(m2)
+  
+  # Tercer modelo excluyendo el interceptor y x4
+  m3 = lm( y ~ x1 + x2 + x3 + x5 + x6 +x7 - 1)
+  summary(m3)
+  
+  # Cuarto modelo excluyendo el interceptor, x4 y x1
+  m4 = lm( y ~ x2 + x3 + x5 + x6 +x7 - 1)
+  summary(m4)
+  
+  # Quinto modelo excluyendo el interceptor, x4, x1 y x3
+  m5 = lm( y ~ x2 + x5 + x6 +x7 - 1)
+  summary(m5)
+  
+  # Sexto modelo excluyendo el interceptor, x4, x1, x3 y x5
+  m6 = lm( y ~ x2 + x6 +x7 - 1)
+  summary(m6)
+  
+  # Septimo modelo excluyendo el interceptor, x4, x1, x3, x5 y x2
+  m7 = lm( y ~ x6 +x7 - 1)
+  summary(m7)
+  
+# Modelo para el Centro de investigacion A
+  # Primer modelo con todas las variables
+  mA1 = lm(A$y ~ A$x1 + A$x2 + A$x3 + A$x4 + A$x5 + A$x6 + A$x7)
+  summary(mA1)
+  
+  # Segundo modelo excluyendo A$x5
+  mA2 = lm(A$y ~ A$x1 + A$x2 + A$x3 + A$x4 + A$x6 + A$x7)
+  summary(mA2)
+
+  # Tercer modelo excluyendo A$x5 y A$x3
+  mA3 = lm(A$y ~ A$x1 + A$x2 + A$x4 + A$x6 + A$x7)
+  summary(mA3)
+  
+  # Cuarto modelo excluyendo A$x5, A$x3 y el interceptor
+  mA4 = lm(A$y ~ A$x1 + A$x2 + A$x4 + A$x6 + A$x7 - 1)
+  summary(mA4)
+  
+  # Quinto modelo excluyendo A$x5, A$x3, el interceptor y x1
+  mA5 = lm(A$y ~ A$x2 + A$x4 + A$x6 + A$x7 - 1)
+  summary(mA5)
+
+  # Sexto modelo excluyendo A$x5, A$x3, el interceptor, A$x1, A$x2
+  mA6 = lm(A$y ~ A$x4 + A$x6 + A$x7 - 1)
+  summary(mA6)
+  
+# Modelo para el Centro de investigacion B
+  # Primer modelo con todas las variables
+  mB1 = lm(B$y ~ B$x1 + B$x2 + B$x3 + B$x4 + B$x5 + B$x6 + B$x7)
+  summary(mB1)
+
+  # Segundo excluyendo a B$x3
+  mB2 = lm(B$y ~ B$x1 + B$x2 + B$x4 + B$x5 + B$x6 + B$x7)
+  summary(mB2)
+  
+  # Tercer modelo excluyendo a B$x3 y a B$x2
+  mB3 = lm(B$y ~ B$x1 + B$x4 + B$x5 + B$x6 + B$x7)
+  summary(mB3)
+
+  # Cuarto modelo excluyendo a B$x3, B$x2 y a B$x5
+  mB4 = lm(B$y ~ B$x1 + B$x4 + B$x6 + B$x7)
+  summary(mB4)
+  
+  # Quinto modelo excluyendo a B$x3, B$x2, B$x5 y a B$x4
+  mB5 = lm(B$y ~ B$x1+ B$x6 + B$x7)
+  summary(mB5)
+
+  # Sexto modelo excluyendo a B$x3, B$x2, B$x5, B$x4 y al interceptor
+  mB6 = lm(B$y ~ B$x1+ B$x6 + B$x7 - 1)
+  summary(mB6)
+
+  # Sexto modelo excluyendo a B$x3, B$x2, B$x5, B$x4, al interceptor y a B$x7
+  mB7 = lm(B$y ~ B$x1+ B$x6 - 1)
+  summary(mB7)
+
+# Modelo para el Centro de investigacion C
+  # Primer modelo con todas las variables
+  mC1 = lm(C$y ~ C$x1 + C$x2 + C$x3 + C$x4 + C$x5 + C$x6 + C$x7)
+  summary(mC1)
+  
+  # Segundo modelo excluyendo a C$x2
+  mC2 = lm(C$y ~ C$x1 + C$x3 + C$x4 + C$x5 + C$x6 + C$x7)
+  summary(mC2)
+  
+  # Tercer modelo excluyendo a C$x2 y a C$x3
+  mC3 = lm(C$y ~ C$x1 + C$x4 + C$x5 + C$x6 + C$x7)
+  summary(mC3)
+
+  # Cuarto modelo excluyendo a C$x2, C$x3 y al interceptor
+  mC4 = lm(C$y ~ C$x1 + C$x4 + C$x5 + C$x6 + C$x7 - 1)
+  summary(mC4)
+
+  # Quinto modelo excluyendo a C$x2, C$x3, al interceptor y a C$x1
+  mC5 = lm(C$y ~ C$x4 + C$x5 + C$x6 + C$x7 - 1)
+  summary(mC5)
+  
+  # Sexto modelo excluyendo a C$x2, C$x3, al interceptor, C$x1 y a C$x5
+  mC6 = lm(C$y ~ C$x4 + C$x6 + C$x7 - 1)
+  summary(mC6)
+  
+  # Septimo modelo excluyendo a C$x2, C$x3, al interceptor, C$x1, C$x5 y a C$x4
+  mC7 = lm(C$y ~ C$x6 + C$x7 - 1)
+  summary(mC7)
+  
+# Modelo para el Centro de investigacion D
+  # Primer modelo con todas las variables
+  mD1 = lm(D$y ~ D$x1 + D$x2 + D$x3 + D$x4 + D$x5 + D$x6 + D$x7)
+  summary(mD1)
+  
+  # Segundo modelo excluyendo a D$x4
+  mD2 = lm(D$y ~ D$x1 + D$x2 + D$x3 + D$x5 + D$x6 + D$x7)
+  summary(mD2)
+  
+  # Tercer modelo excluyendo a D$x4 y al interceptor
+  mD3 = lm(D$y ~ D$x1 + D$x2 + D$x3 + D$x5 + D$x6 + D$x7 - 1)
+  summary(mD3)
+  
+  # Cuarto modelo excluyendo a D$x4, al interceptor y a D$x3 
+  mD4 = lm(D$y ~ D$x1 + D$x2 + D$x5 + D$x6 + D$x7 - 1)
+  summary(mD4)
+  
+  # Quinto modelo excluyendo a D$x4, al interceptor, D$x3 y a D$x1
+  mD5 = lm(D$y ~ D$x2 + D$x5 + D$x6 + D$x7 - 1)
+  summary(mD5)
+
+  # Quinto modelo excluyendo a D$x4, al interceptor, D$x3, D$x1 y a D$x5
+  mD6 = lm(D$y ~ D$x2 + D$x6 + D$x7 - 1)
+  summary(mD6)
+  
   
 #######################   FIN   #############################
