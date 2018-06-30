@@ -145,6 +145,37 @@ library(knitr)  # Para poder sacar una tabla bonita en html con kable
   cor(C)
   cor(D)
 
+# Prueba de bondad de ajuste para determinar si la variable “y” se distribuye en forma normal.
+  
+  # Gr�ficos de normalidad
+  par(mfrow=c(1,3))
+  hist(y, xlab="Porcentaje de óxido de aluminio que precipita.", ylab="Frecuencia", las=1, main="")
+  plot(density(y), xlab="Porcentaje de óxido de aluminio que precipita.", ylab="Densidad", las=1, main="")
+  qqnorm(y, xlab="Cuantiles teoricos", ylab="Cuantiles muestrales", las=1,main="")
+  qqline(y)
+  
+  # Calculamos la tabla de frecuencia de la variable Estatura de la siguiente forma
+  frecuency = hist(y,plot=F)
+  
+  # Luego, la prueba de bondad de ajuste es la siguiente
+  fi = frecuency$counts
+  mi = frecuency$mids
+  xbarra = mean(y)
+  S = sd(y)
+  k = length(fi)
+  n = sum(fi)
+  r = 2 # se pierden dos gl por el calculo de la media y la varianza
+  pi = pnorm(frecuency$breaks[1:k+1],xbarra,S) - pnorm(frecuency$breaks[1:k],xbarra,S)
+  chi_2 = sum((fi-n*pi)^2/(n*pi))
+  alpha = 0.05
+  chi_2_alpha = qchisq(1-alpha,k-1-r)
+  p_valor = pchisq(chi_2,k-1-r)
+  
+
+# Intervalo de confianza del 97% para cada variable.
+  
+  
+  
 
 #######################   FIN   ##############################
   
