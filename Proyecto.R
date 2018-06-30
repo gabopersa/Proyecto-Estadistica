@@ -147,14 +147,14 @@ library(knitr)  # Para poder sacar una tabla bonita en html con kable
 
 # Prueba de bondad de ajuste para determinar si la variable “y” se distribuye en forma normal.
   
-  # Gr�ficos de normalidad
+  # Graficos de normalidad
   par(mfrow=c(1,3))
   hist(y, xlab="Porcentaje de óxido de aluminio que precipita.", ylab="Frecuencia", las=1, main="")
   plot(density(y), xlab="Porcentaje de óxido de aluminio que precipita.", ylab="Densidad", las=1, main="")
   qqnorm(y, xlab="Cuantiles teoricos", ylab="Cuantiles muestrales", las=1,main="")
   qqline(y)
   
-  # Calculamos la tabla de frecuencia de la variable Estatura de la siguiente forma
+  # Calculamos la tabla de frecuencia de la variable y (porcentaje de oxido que precipita) de la siguiente forma
   frecuency = hist(y,plot=F)
   
   # Luego, la prueba de bondad de ajuste es la siguiente
@@ -172,10 +172,59 @@ library(knitr)  # Para poder sacar una tabla bonita en html con kable
   p_valor = pchisq(chi_2,k-1-r)
   
 
-# Intervalo de confianza del 97% para cada variable.
+# Intervalo de confianza del 93% para cada variable.
   
+  # Independientes del Centro de Investigacion
+  t.test(datos[1], conf.level = 0.93)  
+  t.test(datos[2], conf.level = 0.93)  
+  t.test(datos[3], conf.level = 0.93)  
+  t.test(datos[4], conf.level = 0.93)  
+  t.test(datos[5], conf.level = 0.93)  
+  t.test(datos[6], conf.level = 0.93)  
+  t.test(datos[7], conf.level = 0.93)  
+  t.test(datos[8], conf.level = 0.93)
   
+  # Centro de Investigacion A
+  t.test(A[1], conf.level = 0.93)  
+  t.test(A[2], conf.level = 0.93)  
+  t.test(A[3], conf.level = 0.93)  
+  t.test(A[4], conf.level = 0.93)  
+  t.test(A[5], conf.level = 0.93)  
+  t.test(A[6], conf.level = 0.93)  
+  t.test(A[7], conf.level = 0.93)  
+  t.test(A[8], conf.level = 0.93)
   
+  # Centro de Investigacion B
+  t.test(B[1], conf.level = 0.93)  
+  t.test(B[2], conf.level = 0.93)  
+  t.test(B[3], conf.level = 0.93)  
+  t.test(B[4], conf.level = 0.93)  
+  t.test(B[5], conf.level = 0.93)  
+  t.test(B[6], conf.level = 0.93)  
+  t.test(B[7], conf.level = 0.93)  
+  t.test(B[8], conf.level = 0.93)
+  
+  # Centro de Investigacion A
+  t.test(C[1], conf.level = 0.93)  
+  t.test(C[2], conf.level = 0.93)  
+  t.test(C[3], conf.level = 0.93)  
+  t.test(C[4], conf.level = 0.93)  
+  t.test(C[5], conf.level = 0.93)  
+  t.test(C[6], conf.level = 0.93)  
+  t.test(C[7], conf.level = 0.93)  
+  t.test(C[8], conf.level = 0.93)
+  
+  # Centro de Investigacion A
+  t.test(D[1], conf.level = 0.93)  
+  t.test(D[2], conf.level = 0.93)  
+  t.test(D[3], conf.level = 0.93)  
+  t.test(D[4], conf.level = 0.93)  
+  t.test(D[5], conf.level = 0.93)  
+  t.test(D[6], conf.level = 0.93)  
+  t.test(D[7], conf.level = 0.93)  
+  t.test(D[8], conf.level = 0.93)
 
-#######################   FIN   ##############################
+
+# Halle un modelo lineal que explique mejor la variable “y”.  
   
+#######################   FIN   #############################
