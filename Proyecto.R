@@ -1,4 +1,4 @@
-# Lab4 - Estadistica
+# Proyecto - Estadistica
 # Nombres : Maria Victoria Oliveros 14-10755
 #           Gabriel Perez Salgado   13-11104
 #           Paul Baptista           10-10056
