@@ -122,4 +122,29 @@ library(knitr)  # Para poder sacar una tabla bonita en html con kable
   boxplot(X7$A, X7$B, X7$C, X7$D, main = "Tiempo del proceso en horas.", names = c("A","B","C","D") )  
 
   
+# Grafico de dispersion de las variables independiente del Centro de investigacion
+  datosSinCentro<-subset(datos, select = y:x7)
+  pairs(datosSinCentro)
+  
+# Grafico de dispersion de las variables dependiendo del Centro de investigacion
+  A<-subset(datosCentros$A, select = y:x7)
+  B<-subset(datosCentros$B, select = y:x7)
+  C<-subset(datosCentros$C, select = y:x7)
+  D<-subset(datosCentros$D, select = y:x7)
+  pairs(A)
+  pairs(B)
+  pairs(C)
+  pairs(D)
+
+# Matriz de Correlacion de las variables independientes del Centro de Investigacion
+  cor(datosSinCentro)
+
+# Matriz de Correlacion de las variables dependiento del Centro de Investigacion
+  cor(A)
+  cor(B)
+  cor(C)
+  cor(D)
+
+
+#######################   FIN   ##############################
   
