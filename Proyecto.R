@@ -231,5 +231,45 @@ library(knitr)  # Para poder sacar una tabla bonita en html con kable
   boxplot(error, main = "Error")
   
 
+# ANOVA
+  tapply(y, Cent, mean)
+  boxplot(y~Cent,ylab="Y")
+  anova(lm(y~Cent))
+  pairwise.t.test(y,Cent)
 
+  tapply(x1, Cent, mean)
+  boxplot(x1~Cent,ylab="X1")
+  anova(lm(x1~Cent))
+  pairwise.t.test(x1,Cent)
+  
+  tapply(x2, Cent, mean)
+  boxplot(x2~Cent,ylab="X2")
+  anova(lm(x2~Cent))
+  pairwise.t.test(x2,Cent)
+  
+  tapply(x3, Cent, mean)
+  boxplot(x3~Cent,ylab="X3")
+  anova(lm(x3~Cent))
+  pairwise.t.test(x3,Cent)
+  
+  tapply(x4, Cent, mean)
+  boxplot(x4~Cent,ylab="X4")
+  anova(lm(x4~Cent))
+  pairwise.t.test(x4,Cent)
+  
+  tapply(x5, Cent, mean)
+  boxplot(x5~Cent,ylab="X5")
+  anova(lm(x5~Cent))
+  pairwise.t.test(x5,Cent)
+  
+  tapply(x6, Cent, mean)
+  boxplot(x6~Cent,ylab="X6")
+  anova(lm(x6~Cent))
+  pairwise.t.test(x6,Cent)
+  
+  tapply(x7, Cent, mean)
+  boxplot(x7~Cent,ylab="X7")
+  anova(lm(x7~Cent))
+  pairwise.t.test(x7,Cent)
+  
 #######################   FIN   #############################
